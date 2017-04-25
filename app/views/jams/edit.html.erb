@@ -1,0 +1,20 @@
+<h2>Edit this event </h2>
+
+<div class="form">
+	<%= form_tag "/jams/#{@jam.id}", method: :patch do %>
+		<div class="check">
+			Jam name: <input type="text" name="name" value="<%= @jam.name %>">
+		</div>
+		<div class="check">
+			Song for the jam: <input type="text" name="song" value="<%= @jam.song %>">
+		</div>
+		<div class="check">
+			Date of jam: <input type="datetime" name="date" value="<%= @jam.date %>">
+		</div>
+		<div class="check">
+			Location of jam: <input type="text" name="location" value="<%= @jam.location %>">
+		</div>
+		<div class="check">
+			<input type="submit" value="Save Details">
+		</div>
+	<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  song: MyString
+  date: 2017-04-16 19:15:37
+  location: MyString
+  owner_user_id: 1
+
+two:
+  name: MyString
+  song: MyString
+  date: 2017-04-16 19:15:37
+  location: MyString
+  owner_user_id: 1

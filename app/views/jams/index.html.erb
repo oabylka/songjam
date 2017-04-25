@@ -1,0 +1,15 @@
+<h1>Upcoming Jams</h1>
+
+<% @jams.each do |jam| %>
+<!-- name is going to be a link to the show page of that jam -->
+	<h2><%= jam.name %></h2>
+	<%= jam.song %><br>
+	<%= (jam.date).strftime("%b %e, %l:%M %p") %><br>
+	<%= jam.location %><br>
+
+<!-- add to my timeline link here -->
+<!-- the link should only be visible to logged in users -->
+<%= link_to "See Details", "/jams/#{jam.id}"%>
+
+
+<% end %>
