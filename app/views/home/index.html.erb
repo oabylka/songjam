@@ -1,0 +1,7 @@
+<h1>Home#index</h1>
+<h2>Blurb about this site and what it does</h2>
+
+<%= button_to "Browse", "/jams", method: :get %>
+<%= button_to "Sign up", new_user_registration_path, method: :get %>
+
+<%= link_to "Log out", destroy_user_session_path, method: :delete %>

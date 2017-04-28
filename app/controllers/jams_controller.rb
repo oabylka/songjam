@@ -6,7 +6,7 @@ class JamsController < ApplicationController
 	def add_jam
 		#this is the method to add a jam from the general jams page to "my timeline"
 		#the link should only be visible to logged in users
-
+		
 	end
 
 	def show
