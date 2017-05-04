@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+.center {
+	text-align: center;
+}
+
+.tile {
+	border-style: ridge;
+	width: 40%;
+	height: 30%;
+	padding: 1%;
+	text-align: center;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.tile:hover {
+	background-color: #e0ebeb;  
+}
+
+.date {
+	background-color: yellow;
+	padding: 1%;
+	text-align: center;
+}

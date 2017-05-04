@@ -17,7 +17,7 @@ window.DEBUG = true;
  * Setting Widgster's body selector to theme specific
  * @type {string}
  */
-$.fn.widgster.Constructor.DEFAULTS.bodySelector = '.widget-body';
+//$.fn.widgster.Constructor.DEFAULTS.bodySelector = '.widget-body';
 
 $(function(){
 

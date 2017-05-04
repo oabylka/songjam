@@ -1,7 +1,18 @@
-<h1>Home#index</h1>
-<h2>Blurb about this site and what it does</h2>
+<div class="center">
+	<h1>SONGJAM</h1>
+	<h2>Find other musicians in your area who loves the same songs you do and learn 
+to play them together!</h2>
 
-<%= button_to "Browse", "/jams", method: :get %>
-<%= button_to "Sign up", new_user_registration_path, method: :get %>
+<!-- html for maps API -->
+	<div id="map"></div>
 
-<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+	<div id="button">
+		<%= button_to "Browse", "/jams", method: :get %><br>
+		<% if !user_signed_in? %>
+			<%= button_to "Sign up", new_user_registration_path, method: :get %><br>
+		<% end %>
+		<% if user_signed_in? %>
+			<%= link_to "Log out", destroy_user_session_path, method: :delete %><br>
+		<% end %>
+	</div>
+</div>

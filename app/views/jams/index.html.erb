@@ -1,18 +1,35 @@
-<h1>Upcoming Jams</h1>
+<div class="center">
+	<h1>Upcoming Jams</h1>
 
-<% @jams.each do |jam| %>
-<!-- name is going to be a link to the show page of that jam -->
-	<h2><%= jam.name %></h2>
-	<%= jam.song %><br>
-	<%= (jam.date).strftime("%b %e, %l:%M %p") %><br>
-	<%= jam.location %><br>
+	<a href="/jams?sort=date&sort_order=asc">Sort by ascending date</a><br>
+	<a href="/jams?sort=date&sort_order=desc">Sort by descending date</a><br>
+	<!-- need logic here to only show events from today's date onward -->
+	<% @jams.each do |jam| %>
+	<p></p>
+	<!-- name is going to be a link to the show page of that jam -->
+		<div class="tile">
+			<a href="/jams/#{jam.id}"><span></span></a>
+			<div class="date">
+				<h2><%= (jam.date).strftime("%A, %b %d") %></h2><br>
+			</div>
+			<h3><%= jam.name %></h3>
+			<%= jam.song %><br>
+			<%= jam.location %><br>
 
-<!-- add to my timeline link here -->
-<!-- the link should only be visible to logged in users -->
-<%= link_to "See Details", "/jams/#{jam.id}"%>
+	<!-- add to my timeline link here -->
+	<!-- the link should only be visible to logged in users -->
+		<br>
+		<% if user_signed_in? %>
+			<%= link_to "See Details", "/jams/#{jam.id}"%>
+		<% end %>
+		<br>
+		</div>
 
 
-<% end %>
-<p>
-<%= button_to "Start a Jam!", "/jams/new", method: :get %>
-</p>
+	<% end %>
+	<% if user_signed_in? %>
+	<p>
+	<%= button_to "Start a Jam!", "/jams/new", method: :get %>
+	</p>
+	<% end %>
+</div>

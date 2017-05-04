@@ -15,4 +15,7 @@ root :to => "home#index"
   get "/jams/:id/edit" => "jams#edit"
   patch "/jams/:id/" => "jams#update"
 
+  get "/songs", to: "songs#index"
+  get "/songs/:id", to: "songs#show", as: 'song'
+
 end

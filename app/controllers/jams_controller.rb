@@ -1,6 +1,13 @@
 class JamsController < ApplicationController
 	def index
-		@jams = Jam.all
+		sort = params[:sort]
+		sort_order = params[:sort_order]
+
+		if sort && sort_order
+			@jams = Jam.all.order(sort => sort_order)
+		else
+			@jams = Jam.all
+		end
 	end
 
 	def add_jam
