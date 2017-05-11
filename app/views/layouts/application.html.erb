@@ -3,374 +3,84 @@
 <head>
     <title>Songjam</title>
     <link href="/css/application.min.css" rel="stylesheet">
-    <!-- as of IE9 cannot parse css files with more that 4K classes separating in two files -->
-    <!--[if IE 9]>
-        <link href="css/application-ie9-part2.css" rel="stylesheet">
-    <![endif]-->
-    <link rel="shortcut icon" href="img/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <script>
-        /* yeah we need this empty stylesheet here. It's cool chrome & chromium fix
-         chrome fix https://code.google.com/p/chromium/issues/detail?id=167083
-         https://code.google.com/p/chromium/issues/detail?id=332189
-         */
-    </script>
-    <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="/css/style.css" rel="stylesheet">
 </head>
-<body>
-<!--
-  Main sidebar seen on the left. may be static or collapsing depending on selected state.
+<div class="page">
+    <body>
 
-    * Collapsing - navigation automatically collapse when mouse leaves it and expand when enters.
-    * Static - stays always open.
--->
-<nav id="sidebar" class="sidebar" role="navigation">
-    <!-- need this .js class to initiate slimscroll -->
-    <div class="js-sidebar-content">
-        <header class="logo hidden-xs">
-            <a href="/index.html.erb"><img src="assets/clef.png" height="75" width="30" /></a>
-        </header>
-        <!-- seems like lots of recent admin template have this feature of user info in the sidebar.
-             looks good, so adding it and enhancing with notifications -->
-        <div class="sidebar-status visible-xs">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="thumb-sm avatar pull-right">
-                    <img class="img-circle" src="demo/img/people/a5.jpg" alt="...">
-                </span>
-                <!-- .circle is a pretty cool way to add a bit of beauty to raw data.
-                     should be used with bg-* and text-* classes for colors -->
-                <span class="circle bg-warning fw-bold text-gray-dark">
-                    13
-                </span>
-                &nbsp;
-                Philip <strong>Smith</strong>
-                <b class="caret"></b>
-            </a>
-            <!-- #notifications-dropdown-menu goes here when screen collapsed to xs or sm -->
+<!--Navbar-->
+<nav class="navbar navbar-toggleable-md navbar-dark bg-primary">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+            <strong>Navbar</strong>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav1">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Pricing</a>
+                </li>
+                <li class="nav-item dropdown btn-group">
+                    <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
+                        <a class="dropdown-item">Action</a>
+                        <a class="dropdown-item">Another action</a>
+                        <a class="dropdown-item">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline waves-effect waves-light">
+                <input class="form-control" type="text" placeholder="Search">
+            </form>
         </div>
-        <!-- main notification links are placed inside of .sidebar-nav -->
-        <ul class="sidebar-nav">
-            <li class="active">
-                <!-- an example of nested submenu. basic bootstrap collapse component -->
-                <a href="#sidebar-dashboard" data-toggle="collapse" data-parent="#sidebar">
-                    <span class="icon">
-                        <i class="fa fa-desktop"></i>
-                    </span>
-                    Dashboard
-                    <i class="toggle fa f-angle-down"></i>
-                </a>
-                <ul id="sidebar-dashboard" class="collapse in">
-                    <li class="active"><a href="index.html">Dashboard</a></li>
-                    <li><a href="widgets.html">Widgets</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="inbox.html">
-                    <span class="icon">
-                        <i class="fa fa-envelope"></i>
-                    </span>
-                    Email
-                    <span class="label label-danger">
-                        9
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="charts.html">
-                    <span class="icon">
-                        <i class="glyphicon glyphicon-stats"></i>
-                    </span>
-                    Charts
-                </a>
-            </li>
-            <li>
-                <a href="profile.html">
-                    <span class="icon">
-                        <i class="glyphicon glyphicon-user"></i>
-                    </span>
-                    Profile
-                    <sup class="text-warning fw-semi-bold">
-                        new
-                    </sup>
-                </a>
-            </li>
-        </ul>
     </div>
 </nav>
 
-<div class="chat-sidebar" id="chat">
-    <div class="chat-sidebar-content">
-        <header class="chat-sidebar-header">
-            <h4 class="chat-sidebar-title">Contacts</h4>
-            <div class="form-group no-margin">
-                <div class="input-group input-group-dark">
-                    <input class="form-control fs-mini" id="chat-sidebar-search" type="text" placeholder="Search...">
-                    <span class="input-group-addon">
-                        <i class="fa fa-search"></i>
-                    </span>
-                </div>
-            </div>
-        </header>
-        <div class="chat-sidebar-contacts chat-sidebar-panel open">
-            <h5 class="sidebar-nav-title">Today</h5>
-            <div class="list-group chat-sidebar-user-group">
-                <a class="list-group-item" href="#chat-sidebar-user-1">
-                    <i class="fa fa-circle text-success pull-right"></i>
-                    <span class="thumb-sm pull-left mr">
-                        <img class="img-circle" src="/demo/img/people/a2.jpg" alt="...">
-                    </span>
-                    <h5 class="message-sender">Chris Gray</h5>
-                    <p class="message-preview">Hey! What's up? So many times since we</p>
-                </a>
-                <a class="list-group-item" href="#chat-sidebar-user-2">
-                    <i class="fa fa-circle text-gray-light pull-right"></i>
-                <span class="thumb-sm pull-left mr">
-                    <img class="img-circle" src="/img/avatar.png" alt="...">
-                </span>
-                    <h5 class="message-sender">Jamey Brownlow</h5>
-                    <p class="message-preview">Good news coming tonight. Seems they agreed to proceed</p>
-                </a>
-                <a class="list-group-item" href="#chat-sidebar-user-3">
-                    <i class="fa fa-circle text-danger pull-right"></i>
-                <span class="thumb-sm pull-left mr">
-                    <img class="img-circle" src="/demo/img/people/a1.jpg" alt="...">
-                </span>
-                    <h5 class="message-sender">Livia Walsh</h5>
-                    <p class="message-preview">Check out my latest email plz!</p>
-                </a>
-                <a class="list-group-item" href="#chat-sidebar-user-4">
-                    <i class="fa fa-circle text-gray-light pull-right"></i>
-                <span class="thumb-sm pull-left mr">
-                    <img class="img-circle" src="/img/avatar.png" alt="...">
-                </span>
-                    <h5 class="message-sender">Jaron Fitzroy</h5>
-                    <p class="message-preview">What about summer break?</p>
-                </a>
-                <a class="list-group-item" href="#chat-sidebar-user-5">
-                    <i class="fa fa-circle text-success pull-right"></i>
-                <span class="thumb-sm pull-left mr">
-                    <img class="img-circle" src="/demo/img/people/a4.jpg" alt="...">
-                </span>
-                    <h5 class="message-sender">Mike Lewis</h5>
-                    <p class="message-preview">Just ain't sure about the weekend now. 90% I'll make it.</p>
-                </a>
-            </div>
-            <h5 class="sidebar-nav-title">Last Week</h5>
-            <div class="list-group chat-sidebar-user-group">
-                <a class="list-group-item" href="#chat-sidebar-user-6">
-                    <i class="fa fa-circle text-gray-light pull-right"></i>
-                <span class="thumb-sm pull-left mr">
-                    <img class="img-circle" src="/demo/img/people/a6.jpg" alt="...">
-                </span>
-                    <h5 class="message-sender">Freda Edison</h5>
-                    <p class="message-preview">Hey what's up? Me and Monica going for a lunch somewhere. Wanna join?</p>
-                </a>
-                <a class="list-group-item" href="#chat-sidebar-user-7">
-                    <i class="fa fa-circle text-success pull-right"></i>
-                <span class="thumb-sm pull-left mr">
-                    <img class="img-circle" src="/demo/img/people/a5.jpg" alt="...">
-                </span>
-                    <h5 class="message-sender">Livia Walsh</h5>
-                    <p class="message-preview">Check out my latest email plz!</p>
-                </a>
-                <a class="list-group-item" href="#chat-sidebar-user-8">
-                    <i class="fa fa-circle text-warning pull-right"></i>
-                <span class="thumb-sm pull-left mr">
-                    <img class="img-circle" src="/demo/img/people/a3.jpg" alt="...">
-                </span>
-                    <h5 class="message-sender">Jaron Fitzroy</h5>
-                    <p class="message-preview">What about summer break?</p>
-                </a>
-                <a class="list-group-item" href="#chat-sidebar-user-9">
-                    <i class="fa fa-circle text-gray-light pull-right"></i>
-                <span class="thumb-sm pull-left mr">
-                    <img class="img-circle" src="/img/avatar.png" alt="...">
-                </span>
-                    <h5 class="message-sender">Mike Lewis</h5>
-                    <p class="message-preview">Just ain't sure about the weekend now. 90% I'll make it.</p>
-                </a>
-            </div>
-        </div>
-        <div class="chat-sidebar-chat chat-sidebar-panel" id="chat-sidebar-user-1">
-            <h5 class="title">
-                <a class="js-back" href="#">
-                    <i class="fa fa-angle-left mr-xs"></i>
-                    Chris Gray
-                </a>
-            </h5>
-            <ul class="message-list">
-                <li class="message">
-                    <span class="thumb-sm">
-                        <img class="img-circle" src="/demo/img/people/a2.jpg" alt="...">
-                    </span>
-                    <div class="message-body">
-                        Hey! What's up?
-                    </div>
-                </li>
-                <li class="message">
-                    <span class="thumb-sm">
-                        <img class="img-circle" src="/demo/img/people/a2.jpg" alt="...">
-                    </span>
-                    <div class="message-body">
-                        Are you there?
-                    </div>
-                </li>
-                <li class="message">
-                    <span class="thumb-sm">
-                        <img class="img-circle" src="/demo/img/people/a2.jpg" alt="...">
-                    </span>
-                    <div class="message-body">
-                        Let me know when you come back.
-                    </div>
-                </li>
-                <li class="message from-me">
-                    <span class="thumb-sm">
-                        <img class="img-circle" src="/img/avatar.png" alt="...">
-                    </span>
-                    <div class="message-body">
-                        I am here!
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="chat-sidebar-chat chat-sidebar-panel" id="chat-sidebar-user-2">
-            <h5 class="title">
-                <a class="js-back" href="#">
-                    <i class="fa fa-angle-left mr-xs"></i>
-                    Jamey Brownlow
-                </a>
-            </h5>
-            <ul class="message-list">
-            </ul>
-        </div>
-        <div class="chat-sidebar-chat chat-sidebar-panel" id="chat-sidebar-user-3">
-            <h5 class="title">
-                <a class="js-back" href="#">
-                    <i class="fa fa-angle-left mr-xs"></i>
-                    Livia Walsh
-                </a>
-            </h5>
-            <ul class="message-list">
-            </ul>
-        </div>
-        <div class="chat-sidebar-chat chat-sidebar-panel" id="chat-sidebar-user-4">
-            <h5 class="title">
-                <a class="js-back" href="#">
-                    <i class="fa fa-angle-left mr-xs"></i>
-                    Jaron Fitzroy
-                </a>
-            </h5>
-            <ul class="message-list">
-            </ul>
-        </div>
-        <div class="chat-sidebar-chat chat-sidebar-panel" id="chat-sidebar-user-5">
-            <h5 class="title">
-                <a class="js-back" href="#">
-                    <i class="fa fa-angle-left mr-xs"></i>
-                    Mike Lewis
-                </a>
-            </h5>
-            <ul class="message-list">
-            </ul>
-        </div>
-        <div class="chat-sidebar-chat chat-sidebar-panel" id="chat-sidebar-user-6">
-            <h5 class="title">
-                <a class="js-back" href="#">
-                    <i class="fa fa-angle-left mr-xs"></i>
-                    Freda Edison
-                </a>
-            </h5>
-            <ul class="message-list">
-            </ul>
-        </div>
-        <div class="chat-sidebar-chat chat-sidebar-panel" id="chat-sidebar-user-7">
-            <h5 class="title">
-                <a class="js-back" href="#">
-                    <i class="fa fa-angle-left mr-xs"></i>
-                    Livia Walsh
-                </a>
-            </h5>
-            <ul class="message-list">
-            </ul>
-        </div>
-        <div class="chat-sidebar-chat chat-sidebar-panel" id="chat-sidebar-user-8">
-            <h5 class="title">
-                <a class="js-back" href="#">
-                    <i class="fa fa-angle-left mr-xs"></i>
-                    Jaron Fitzroy
-                </a>
-            </h5>
-            <ul class="message-list">
-            </ul>
-        </div>
-        <div class="chat-sidebar-chat chat-sidebar-panel" id="chat-sidebar-user-9">
-            <h5 class="title">
-                <a class="js-back" href="#">
-                    <i class="fa fa-angle-left mr-xs"></i>
-                    Mike Lewis
-                </a>
-            </h5>
-            <ul class="message-list">
-            </ul>
-        </div>
-        <footer class="chat-sidebar-footer form-group">
-            <input class="form-control input-dark fs-mini" id="chat-sidebar-input" type="text"  placeholder="Type your message">
-        </footer>
-    </div>
+<!-- PAGE CONTENT -->
+<br>
+<br>
+<div>
+            <%= yield %>
 </div>
 
-<div class="content-wrap">
-    <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
-    <main id="content" class="content" role="main">
-        <%= yield %>
-    </main>
+
+
+ <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="/js/tether.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="/js/mdb.min.js"></script>
+
+    </body>
 </div>
-<!-- The Loader. Is shown when pjax happens -->
-<div class="loader-wrap hiding hide">
-    <i class="fa fa-circle-o-notch fa-spin-fast"></i>
-</div>
-
-<!-- common libraries. required for every page-->
-<script src="/vendor/jquery/dist/jquery.min.js"></script>
-<script src="/vendor/jquery-pjax/jquery.pjax.js"></script>
-<script src="/vendor/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
-<script src="/vendor/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
-<script src="/vendor/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
-<script src="/vendor/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
-<script src="/vendor/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
-<script src="/vendor/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
-<script src="/vendor/slimScroll/jquery.slimscroll.min.js"></script>
-<!-- <script src="/vendor/widgster/widgster.js"></script> -->
-<script src="/vendor/pace.js/pace.js" data-pace-options='{ "target": ".content-wrap", "ghostTime": 1000 }'></script>
-<script src="/vendor/jquery-touchswipe/jquery.touchSwipe.js"></script>
-<script src="/vendor/jquery-touchswipe/jquery.touchSwipe.js"></script>
-
-<!-- common app js -->
-<script src="/js/settings.js"></script>
-<script src="/js/app.js"></script>
-
-<!-- page specific libs -->
-<!-- <script id="test" src="vendor/underscore/underscore.js"></script>
-<script src="/vendor/jquery.sparkline/index.js"></script>
-<script src="/vendor/jquery.sparkline/index.js"></script>
-<script src="/vendor/d3/d3.min.js"></script>
-<script src="/vendor/rickshaw/rickshaw.min.js"></script>
-<script src="/vendor/raphael/raphael-min.js"></script>
-<script src="/vendor/jQuery-Mapael/js/jquery.mapael.js"></script>
-<script src="/vendor/jQuery-Mapael/js/maps/usa_states.js"></script>
-<script src="/vendor/jQuery-Mapael/js/maps/world_countries.js"></script>
-<script src="/vendor/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
-<script src="/vendor/bootstrap_calendar/bootstrap_calendar/js/bootstrap_calendar.min.js"></script>
-<script src="/vendor/jquery-animateNumber/jquery.animateNumber.min.js"></script> -->
-
-<!-- page specific js -->
-<!-- <script src="/js/index.js"></script> -->
-</body>
 </html>
+
+
+
+

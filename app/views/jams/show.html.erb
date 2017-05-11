@@ -1,10 +1,9 @@
-<h1><%= @jam.name %></h1>
+	<h1><%= @jam.name %></h1>
 
-Song: <%= @jam.song %><br>
-Date: <%= @jam.date.strftime("%b %e, %l:%M %p") %><br>
-Location: <%= @jam.location %><br>
-Owner: <%= @jam.user_id %><br>
+	Song: <%= @jam.song %><br>
+	Date: <%= @jam.date.strftime("%b %e, %l:%M %p") %><br>
+	Location: <%= @jam.location %><br>
+	Owner: <%= @jam.user_id %><br>
 
-<%= link_to "Edit the event", "/jams/#{@jam.id}/edit" %>
-<%= link_to "See All Upcoming Jams", "/jams" %>
-
+	<%= link_to "Edit the event", "/jams/#{@jam.id}/edit" %>
+	<%= link_to "See All Upcoming Jams", "/jams" %>

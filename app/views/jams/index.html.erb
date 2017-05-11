@@ -1,35 +1,42 @@
+
+
 <div class="center">
-	<h1>Upcoming Jams</h1>
-
+	<div class="col-md-12" style="center"><h2>Upcoming Events</h2></div>
 	<a href="/jams?sort=date&sort_order=asc">Sort by ascending date</a><br>
-	<a href="/jams?sort=date&sort_order=desc">Sort by descending date</a><br>
-	<!-- need logic here to only show events from today's date onward -->
-	<% @jams.each do |jam| %>
-	<p></p>
-	<!-- name is going to be a link to the show page of that jam -->
-		<div class="tile">
-			<a href="/jams/#{jam.id}"><span></span></a>
-			<div class="date">
-				<h2><%= (jam.date).strftime("%A, %b %d") %></h2><br>
-			</div>
-			<h3><%= jam.name %></h3>
-			<%= jam.song %><br>
-			<%= jam.location %><br>
-
-	<!-- add to my timeline link here -->
-	<!-- the link should only be visible to logged in users -->
-		<br>
-		<% if user_signed_in? %>
-			<%= link_to "See Details", "/jams/#{jam.id}"%>
-		<% end %>
-		<br>
-		</div>
-
-
-	<% end %>
-	<% if user_signed_in? %>
-	<p>
-	<%= button_to "Start a Jam!", "/jams/new", method: :get %>
-	</p>
-	<% end %>
+		<a href="/jams?sort=date&sort_order=desc">Sort by descending date</a><br>
+	<br>
 </div>
+
+		<!-- add to my timeline link here -->
+		<!-- the link should only be visible to logged in users -->
+
+		<% @jams.each_slice(3) do |three| %>
+		  <div class="row">
+		    <% three.each do |jam| %>
+		         <div class="col-md-4">
+		          <div class="well">
+		            <div class="item">
+		             <a href="/jams/<%= jam.id %>"><h3><%= jam.name %></h3></a><br>
+		             <%= jam.song %><br>
+							<%= jam.location %><br>
+							<br>
+							<h3><span class="label label-info"><%= (jam.date).strftime("%A, %b %d") %></span></h3>
+							<% if user_signed_in? %>
+								<%= link_to "See Details", "/jams/#{jam.id}"%>
+							<% end %>
+		            </div>
+		          </div>
+		        </div>
+		    <%end%>
+		  </div>
+		<% end %>
+<div class="center">
+		<% if user_signed_in? %>
+				<p>
+				<br>
+				<button type="button" class="btn btn-primary"><%= link_to "Start a Jam!", "/jams/new", method: :get %></button>
+				</p>
+		<% end %>
+</div>
+
+

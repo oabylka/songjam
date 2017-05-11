@@ -2,17 +2,33 @@
 	<h1>SONGJAM</h1>
 	<h2>Find other musicians in your area who loves the same songs you do and learn 
 to play them together!</h2>
+<br>
 
-<!-- html for maps API -->
-	<div id="map"></div>
+<!-- My code -->
+<div class="searchBox">
+	<input id="pac-input" class="controls" type="text" placeholder="Enter City">
+</div>
+<br>
 
+<style type="text/css">
+div#map { margin: 0 auto 0 auto; }
+</style>
+
+<div id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApukely-nToq2fH9wsW5GBQ4KZNnPwPzw&libraries=places&callback=initAutocomplete"
+         async defer></script>
+
+
+<br>
 	<div id="button">
-		<%= button_to "Browse", "/jams", method: :get %><br>
+		<button type="button" class="btn btn-primary"><%= link_to "Browse Upcoming Jams", "/jams", method: :get %></button>
+		<p>
+		</p>
 		<% if !user_signed_in? %>
-			<%= button_to "Sign up", new_user_registration_path, method: :get %><br>
+			<button type="button" class="btn btn-primary"><%= link_to "Sign up", new_user_registration_path, method: :get %></button><br>
 		<% end %>
 		<% if user_signed_in? %>
-			<%= link_to "Log out", destroy_user_session_path, method: :delete %><br>
+			<button type="button" class="btn btn-primary"><%= link_to "Log out", destroy_user_session_path, method: :delete %></button><br>
 		<% end %>
 	</div>
 </div>

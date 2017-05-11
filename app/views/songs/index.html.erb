@@ -1,8 +1,27 @@
-<h2>Pulling in data from spotify: Song List</h2>
+<div class="page">
+	<div id="app">
+	  {{ song }}
 
-<%= form_tag songs_path, method: "get", html: { class: "form" } do %>
- <div class="form-group col-xs-4">
-   <%= text_field_tag(:song_name, "", placeholder: "Enter song name", class: "form-control") %>
- </div>
- <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+		<h2>Search Songs</h2>
+			<div class="row">
+				<div class="form-group col-xs-4">
+					<input type="text" placeholder="Enter song" class="form-control" v-model="userQuery"><br>
+					<button class="btn btn-primary" v-on:click="searchSong()">Search for track</button>
+				</div>
+			</div>
+			<div class="row">
+				<ul>
+			 		<div v-for="song in songs">
+			 			<div class="grid">
+				 			<div>
+				 				 <b>Song name</b>: {{song.name}}<br>
+				 				 <b>Artist</b>: {{song.artists[0].name}}
+						 		 <p>
+						 		 </p>
+				 			</div>
+			 			</div>
+			 		</div>
+			 	</ul>
+			 </div>
+	</div>
+</div>

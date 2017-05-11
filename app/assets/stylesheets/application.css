@@ -29,10 +29,20 @@
 
 .tile:hover {
 	background-color: #e0ebeb;  
+
 }
 
 .date {
 	background-color: yellow;
 	padding: 1%;
 	text-align: center;
+}
+
+body {
+	background-image:url('/assets/images/slide-3.jpg')
+}
+
+#button {
+	display: inline-block;
+	color: white;
 }
