@@ -10,18 +10,20 @@
 				</div>
 			</div>
 			<div class="row">
-				<ul>
-			 		<div v-for="song in songs">
-			 			<div class="grid">
-				 			<div>
-				 				 <b>Song name</b>: {{song.name}}<br>
-				 				 <b>Artist</b>: {{song.artists[0].name}}
-						 		 <p>
-						 		 </p>
+				<div class="form-group col-xs-3">
+					<ul>
+				 		<div v-for="song in songs">
+				 			<div class="grid">
+					 			<div>
+					 				 <b>Song name</b>: {{song.name}}<br>
+					 				 <b>Artist</b>: {{song.artists[0].name}}<br>
+							 		 <p>
+							 		 </p>
+					 			</div>
 				 			</div>
-			 			</div>
-			 		</div>
-			 	</ul>
+				 		</div>
+				 	</ul>
+				 </div>
 			 </div>
 	</div>
 </div>
