@@ -1,29 +1,31 @@
-<div class="page">
-	<div id="app">
-	  {{ song }}
+<div class="center">
+	<div class="page">
+		<div id="app">
+		  {{ song }}
 
-		<h2>Search Songs</h2>
-			<div class="row">
-				<div class="form-group col-xs-4">
-					<input type="text" placeholder="Enter song" class="form-control" v-model="userQuery"><br>
-					<button class="btn btn-primary" v-on:click="searchSong()">Search for track</button>
+			<h2>Search Songs</h2>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<input type="text" placeholder="Enter song" class="form-control" v-model="userQuery"><br>
+						<button class="btn btn-primary" v-on:click="searchSong()">Search for track</button>
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-xs-3">
-					<ul>
-				 		<div v-for="song in songs">
-				 			<div class="grid">
-					 			<div>
-					 				 <b>Song name</b>: {{song.name}}<br>
-					 				 <b>Artist</b>: {{song.artists[0].name}}<br>
-							 		 <p>
-							 		 </p>
-					 			</div>
-				 			</div>
-				 		</div>
-				 	</ul>
+						<ul>
+					 		<div v-for="song in songs">
+					 			<div class="row">
+							 			<div>
+							 				<div class="form-group col-xs-4">
+							 				 <b>Song name</b>: {{song.name}}<br>
+							 				 <b>Artist</b>: {{song.artists[0].name}}<br>
+									 		 <p>
+									 		 </p>
+									 		</div>
+							 			</div>
+							 	</div>	
+					 		</div>
+					 	</ul>
+					 </div>
 				 </div>
-			 </div>
+		</div>
 	</div>
 </div>

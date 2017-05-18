@@ -12,3 +12,4 @@
 //
 //= require vue
 //= require_tree .
+//= require bootstrap-sprockets

@@ -10,6 +10,10 @@ class JamsController < ApplicationController
 		end
 	end
 
+	def timeline
+		@jams = Jam.find_by(user_id)
+	end
+
 	def add_jam
 		#this is the method to add a jam from the general jams page to "my timeline"
 		#the link should only be visible to logged in users

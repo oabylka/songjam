@@ -1,25 +1,23 @@
-<h2> Organize your own Jam! </h2>
 
-<div class="form">
-	<div class="col-md-3" style="center">
-		<%= form_tag "/jams", method: :post do %>
-			<div class="check">
-				Jam name: <input type="text" name="name">
-			</div>
-			<div class="check">
-				Song for the jam: <input type="text" name="song">
-			</div>
-			<div class="check">
-				Date of jam: <input type="date" name="date">
-			</div>
-			<div class="check">
-				Location of jam: <input type="text" name="location">
-			</div>
-			<br>
-			<div class="check">
-				<input type="submit" class="btn btn-primary" value="Create Jam">
-			</div>
-		<% end %>
+	<div class="center-forms">
+		<h2> Organize your own Jam! </h2>
+			<%= form_tag "/jams", method: :post do %>
+				<div class="check">
+					Jam name: <input type="text" name="name">
+				</div>
+				<div class="check">
+					Song for the jam: <input type="text" name="song">
+				</div>
+				<div class="check">
+					Date of jam: <input type="date" name="datetime">
+				</div>
+				<div class="check">
+					Location of jam: <input type="text" name="location">
+				</div>
+				<br>
+				<div class="check">
+					<input type="submit" class="btn btn-primary" value="Create Jam">
+				</div>
+			<% end %>
 	</div>
-</div>
 

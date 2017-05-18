@@ -1,5 +1,3 @@
-
-
 <div class="center">
 	<div class="col-md-12" style="center"><h2>Upcoming Events</h2></div>
 	<a href="/jams?sort=date&sort_order=asc">Sort by ascending date</a><br>
@@ -16,9 +14,6 @@
 		         <div class="col-md-4">
 		          <div class="well">
 		            <div class="item">
-		            	<div class="add">
-		            		<div class="glyphicon glyphicon-plus" v-on:click="addJam()"></div>
-		            	</div>
 		             <a href="/jams/<%= jam.id %>"><h3><%= jam.name %></h3></a><br>
 		             <%= jam.song %><br>
 							<%= jam.location %><br>
@@ -41,5 +36,3 @@
 				</p>
 		<% end %>
 </div>
-
-

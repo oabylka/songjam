@@ -5,6 +5,7 @@ root :to => "home#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get "/jams" => "jams#index"
+  get "/jams/timeline", to: "jams#timeline"
 
   get "/jams/new" => "jams#new"
   post "/jams" => "jams#create"
