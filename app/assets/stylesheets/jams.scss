@@ -15,11 +15,13 @@ body,h1,h2 {
 }
 
 .well{
-	min-height:270px;
+	min-height:250px;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 4px 6px rgba(0,0,0,0.23);
 	border-style: ridge;
-	margin: 5px;
+	margin: 9px;
 	background-color: #c2c2c2;
+	width: 360px;
+	margin-left: 25px;
 }
 
 .page {
@@ -33,7 +35,7 @@ cursor: pointer;
 
 .item {
 	width: 90%;
-	height: 200%;
+	height: 100%;
 	margin-left: 20px;
 }
 

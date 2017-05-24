@@ -19,4 +19,14 @@ root :to => "home#index"
   get "/songs", to: "songs#index"
   get "/songs/:id", to: "songs#show", as: 'song'
 
+  get "/users", to: "users#index"
+  get "/users/:id", to: "users#show"
+
+
+  namespace :api do
+    namespace :v1 do
+      resources :jams
+    end
+  end
+
 end

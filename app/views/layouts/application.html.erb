@@ -2,10 +2,9 @@
 <html>
 <head>
     <title>Songjam</title>
-    <link href="/css/application.min.css" rel="stylesheet">
+    <!-- <link href="/css/application.min.css" rel="stylesheet"> -->
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -37,7 +36,7 @@
                      <a class="nav-link" href="/jams">Upcoming Jams</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">Jammers</a>
+                    <a class="nav-link" href="/users">Jammers</a>
                 </li>
             </ul>
 
@@ -90,7 +89,9 @@
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="/js/mdb.min.js"></script>
+    <script type="text/javascript" src="/js/moment.js"></script>
 
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </body>
 </div>
 </html>

@@ -1,0 +1,10 @@
+<div class="center">
+
+	<h1><%= @user.first_name %> <%= @user.last_name %><br></h1>
+		<%=image_tag("#{@user.image}")%><br>
+	Location: <%= @user.location %><br>
+	Bio: <%= @user.bio %><br>
+
+	<%= link_to "See All Upcoming Jams", "/jams" %>
+
+</div>

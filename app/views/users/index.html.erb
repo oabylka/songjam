@@ -1,0 +1,23 @@
+		<% @users.each_slice(3) do |three| %>
+		  <div class="row">
+		    <% three.each do |user| %>
+		         <div class="col-md-4">
+		          <div class="well">
+		            <div class="item">
+		             <a href="/users/<%= user.id %>"><h3><%= user.first_name %></h3></a><br>
+		             <div class="pic">
+		             	<%=image_tag("#{user.image}")%>
+		             </div>
+		             <br>
+		             <%= user.bio %><br>
+		             <% if user_signed_in? %>
+		             	<% if current_user.id == user.id %>
+		             		<%= link_to "Edit Profile", edit_user_registration_path %>
+		             	<% end %>
+		             <% end %>
+		            </div>
+		          </div>
+		        </div>
+		    <%end%>
+		  </div>
+		<% end %>
