@@ -8,10 +8,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
       current_user_id: '',
       current_date: '',
       allJams: [],
+      timeline_jams: [],
+      errors: [],
       filters: ["all", "upcoming", "past"]
      },//data
      mounted: function() {
-        $.get('http://localhost:3000/api/v1/jams.json', function (result) {
+        $.get('/api/v1/jams.json', function (result) {
             this.jams = result;
             this.allJams = result;
             console.log(this.jams);
@@ -32,10 +34,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
           return true;
         }
      },
-
-     // addJam: function(jam) {
-
-     // },//addJam
+     addJam: function(jam) {
+      var params = {
+                user_id: this.current_user_id,
+                jam_id: jam.id
+            };
+            console.log(params);
+        $.post("/api/v1/jam_participants", params, function(result) {
+                this.timeline_jams.push(result);
+            }.bind(this)).fail(function (result) {
+                //responseJSON is the variable that comes back in the console log
+                this.errors = result.responseJSON.errors;
+            }.bind(this));
+            alert("BOOO");
+     },//addJam
      filterJams: function(filter) {
           var filteredJams = [];
           var current_date = moment();

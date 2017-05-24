@@ -7,7 +7,23 @@
 	Location: <%= @jam.location %><br>
 	Owner: <%= @jam.user_id %><br>
 
-	<%= link_to "Edit the event", "/jams/#{@jam.id}/edit" %><br>
-	<%= link_to "See All Upcoming Jams", "/jams" %>
+<% if user_signed_in? %>
+	<% if current_user.id == @jam.user_id %>
+		<%= link_to "Edit the event", "/jams/#{@jam.id}/edit" %><br>
+	<% else %>
+		<div class="form">
+			<h3>Join This Jam</h3>
+			<%= form_tag "/jam_participants", method: :post do %>
+				<div class="check">
+					<input type="hidden" name="jam_id" value="<%= @jam.id %>">
+				</div>
+				<div class="check">
+				<input type="submit" value="Add To Timeline" class="btn btn-default">
+				</div>
+			<%end%>
+		</div>	
+	<% end %>
+<% end %>
 
+<%= link_to "See All Jams", "/jams" %>
 </div>

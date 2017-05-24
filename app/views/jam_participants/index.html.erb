@@ -1,0 +1,7 @@
+<h1>Showing Timeline</h1>
+
+<% @timeline_jams.each do |myJam| %>
+	<%= myJam.jam.name %>
+
+	<%= link_to "Remove From Timeline", "/jam_participants/#{myJam.id}", method: :delete %><br>
+<% end %>

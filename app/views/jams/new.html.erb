@@ -1,4 +1,4 @@
-
+<div id="songs">
 	<div class="center-forms">
 		<h2> Organize your own Jam! </h2>
 			<%= form_tag "/jams", method: :post do %>
@@ -6,8 +6,11 @@
 					Jam name: <input type="text" name="name">
 				</div>
 				<div class="check">
-					Song for the jam: <input type="text" name="song">
+					Song for the jam: <input list="songslist" type="text" placeholder="Enter song" class="form-control" v-model="userQuery" v-on:keyup="searchSong()">
 				</div>
+				<datalist id="songslist">
+				    <option v-for="song in songs" v-bind:value="song.name + ' - ' + song.artists[0].name">
+				  </datalist>
 				<div class="check">
 					Date of jam: <input type="date" name="date">
 				</div>
@@ -20,4 +23,6 @@
 				</div>
 			<% end %>
 	</div>
+</div>
+
 
