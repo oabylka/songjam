@@ -37,4 +37,11 @@ root :to => "home#index"
       resources :jam_participants
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :users
+    end
+  end
+
 end

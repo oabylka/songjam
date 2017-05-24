@@ -1,22 +1,30 @@
 
-
+<div id="songs">
 	<div class="center-forms" class="grid">
-		<h2>Edit this event </h2>
-		<%= form_tag "/jams/#{@jam.id}", method: :patch do %>
-			<div class="check">
-				Jam name: <input type="text" name="name" value="<%= @jam.name %>">
-			</div>
-			<div class="check">
-				Song for the jam: <input type="text" name="song" value="<%= @jam.song %>">
-			</div>
-			<div class="check">
-				Date of jam: <input type="datetime" name="date" value="<%= @jam.date %>">
-			</div>
-			<div class="check">
-				Location of jam: <input type="text" name="location" value="<%= @jam.location %>">
-			</div>
-			<div class="check">
-				<input type="submit" value="Save Details">
-			</div>
-		<% end %>
+		<div class="form-back">
+			<h2>Edit this event </h2>
+			<%= form_tag "/jams/#{@jam.id}", method: :patch do %>
+				<div class="check">
+					Jam name: <input type="text" name="name" value="<%= @jam.name %>">
+				</div>
+					<div class="check">
+						Song for the jam: <input list="songslist" type="text" placeholder="Enter song" class="form-control" v-model="userQuery" v-on:keyup="searchSong()" name="song" value="<%= @jam.song %>">
+					</div>
+					<datalist id="songslist">
+					    <option v-for="song in songs" v-bind:value="song.name + ' - ' + song.artists[0].name">
+					  </datalist>
+					<div class="check">
+						Date of jam: <input type="date" name="date" value="<%= @jam.date %>">
+					</div>
+				<div class="check">
+					Location of jam: <input type="text" name="location" value="<%= @jam.location %>">
+				</div>
+				<p>
+					</p>
+				<div class="check">
+					<input type="submit" class="btn btn-primary" value="Save Jam">
+				</div>
+			<% end %>
+		</div>
 	</div>
+</div>

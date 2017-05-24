@@ -35,13 +35,14 @@ body {
   height: 20%;
   background-color: #0275d8;
   padding: 2%;
+  opacity: 0.7;
 }
 
 .app-title {
   font-weight: bold;
   font-family: Comic Sans MS;
   font-size: 100px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-shadow: -1px 0 black, 0 3px black, 3px 0 black, 0 -1px black;
 }
 
 #infowindow-content .title {

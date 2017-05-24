@@ -1,29 +1,30 @@
 <div class="center">
+	<div class="jam-back">
 
-	<h1><%= @jam.name %></h1>
+		<h1><%= @jam.name %></h1>
 
-	Song: <%= @jam.song %><br>
-	Date: <%= @jam.date.strftime("%b %e, %l:%M %p") %><br>
-	Location: <%= @jam.location %><br>
-	Owner: <%= @jam.user_id %><br>
+		Song: <%= @jam.song %><br>
+		Date: <%= @jam.date.strftime("%b %e, %l:%M %p") %><br>
+		Location: <%= @jam.location %><br>
+		Owner: <%= @jam.user.first_name %> <%= @jam.user.last_name %><br>
 
-<% if user_signed_in? %>
-	<% if current_user.id == @jam.user_id %>
-		<%= link_to "Edit the event", "/jams/#{@jam.id}/edit" %><br>
-	<% else %>
-		<div class="form">
-			<h3>Join This Jam</h3>
-			<%= form_tag "/jam_participants", method: :post do %>
-				<div class="check">
-					<input type="hidden" name="jam_id" value="<%= @jam.id %>">
-				</div>
-				<div class="check">
-				<input type="submit" value="Add To Timeline" class="btn btn-default">
-				</div>
-			<%end%>
-		</div>	
-	<% end %>
-<% end %>
+		<% if user_signed_in? %>
+			<% if current_user.id == @jam.user_id %>
+				<%= link_to "Edit the event", "/jams/#{@jam.id}/edit" %><br>
+			<% else %>
+				<div class="form">
+					<%= form_tag "/jam_participants", method: :post do %>
+						<div class="check">
+							<input type="hidden" name="jam_id" value="<%= @jam.id %>">
+						</div>
+						<div class="">
+						<input type="submit" value="Add To Timeline" class="btn btn-primary">
+						</div>
+					<%end%>
+				</div>	
+			<% end %>
+		<% end %>
+	</div>
 
 <%= link_to "See All Jams", "/jams" %>
 </div>

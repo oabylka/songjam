@@ -2,9 +2,12 @@
 			<div class="center-forms">
 						<div class="back">
 						<h2>Search Songs</h2>
-							<input type="text" placeholder="Enter song" class="form-control" v-model="userQuery"><br>
+							<input list="songslist" type="text" placeholder="Enter song or artist" class="form-control" v-model="userQuery"><br>
 							<button class="btn btn-primary" v-on:click="searchSong()">Search for track</button>
 						</div>
+						<datalist id="songslist">
+				    		<option v-for="song in songs" v-bind:value="song.name + ' - ' + song.artists[0].name">
+				  		</datalist>
 						<br>
 				</div>
 						<ul>
@@ -24,7 +27,4 @@
 					 		</div>
 					 	</ul>
 </div>
-
-	
-
 

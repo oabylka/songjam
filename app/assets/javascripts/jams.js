@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 //responseJSON is the variable that comes back in the console log
                 this.errors = result.responseJSON.errors;
             }.bind(this));
-            alert("BOOO");
+            alert("Jam has been added");
      },//addJam
      filterJams: function(filter) {
           var filteredJams = [];

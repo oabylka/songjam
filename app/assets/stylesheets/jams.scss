@@ -10,8 +10,21 @@ body,h1,h2 {
   color: white;
 }
 
+.filter-drop {
+	text-align: left;
+}
+
+#header {
+	font-size: 50px;
+	color: white;
+	text-shadow: -1px 0 black, 0 3px black, 3px 0 black, 0 -1px black;
+}
+
 .add {
 	text-align: right;
+}
+.add:hover {
+	color: blue;
 }
 
 .well{
@@ -22,6 +35,29 @@ body,h1,h2 {
 	background-color: #c2c2c2;
 	width: 360px;
 	margin-left: 25px;
+	opacity: 0.8;
+}
+
+.jam-back {
+	color: black;
+	min-height:250px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 4px 6px rgba(0,0,0,0.23);
+	background-color: white;
+	width: 360px;
+	padding: 25px;
+	display: block;
+    margin: auto;
+}
+
+.form-back {
+	color: black;
+	min-height:250px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 4px 6px rgba(0,0,0,0.23);
+	background-color: white;
+	width: 360px;
+	padding: 25px;
+	display: block;
+	margin-left: -35px;
 	opacity: 0.8;
 }
 
