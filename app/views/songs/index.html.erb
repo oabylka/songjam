@@ -2,7 +2,7 @@
 			<div class="center-forms">
 						<div class="back">
 						<h2>Search Songs</h2>
-							<input list="songslist" type="text" placeholder="Enter song or artist" class="form-control" v-model="userQuery"><br>
+							<input list="songslist" type="text" placeholder="Enter song or artist" class="form-control" v-model="userQuery" v-on:keyup="searchSong()"><br>
 							<button class="btn btn-primary" v-on:click="searchSong()">Search for track</button>
 						</div>
 						<datalist id="songslist">

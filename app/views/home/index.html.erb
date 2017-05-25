@@ -31,8 +31,6 @@ div#map { margin: 0 auto 0 auto; }
 		<% end %>
 		<% if user_signed_in? %>
 			<%= button_to("Log out", destroy_user_session_path, method: :delete, class: "btn btn-primary") %>
-
-
 		<% end %>
 	</div>
 </div>

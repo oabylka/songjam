@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     mounted: function() {
         $.get('https://api.spotify.com/v1/search?q=issues&type=track', function (data) {
             this.songs = data.tracks.items.artists;
-            console.log("When mounted:");
-            console.log(data);
+            // console.log("When mounted:");
+            // console.log(data);
         }.bind(this))
 
     },

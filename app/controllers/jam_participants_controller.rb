@@ -34,6 +34,7 @@ class JamParticipantsController < ApplicationController
 			end
 		end
 		
+
 	end
 
 	def destroy
@@ -43,7 +44,6 @@ class JamParticipantsController < ApplicationController
 		
 		flash[:success] = "Jam removed from timeline"
 		redirect_to "/timeline"
-		
 	end
 
 

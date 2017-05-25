@@ -1,19 +1,18 @@
 <div class="center">
+	<div class="jam-back">
+		<h1><%= @user.first_name %> <%= @user.last_name %><br></h1>
+			<%=image_tag("#{@user.image}")%><br>
+		Location: <%= @user.location %><br>
+		<%= @user.bio %><br>
 
-	<h1><%= @user.first_name %> <%= @user.last_name %><br></h1>
-		<%=image_tag("#{@user.image}")%><br>
-	Location: <%= @user.location %><br>
-	<%= @user.bio %><br>
-
-	<br>
-	<% if user_signed_in? %>
-		<% if current_user.id != @user.id %>
-		  	<button type="button" class="btn btn-primary"><%= link_to "Connect with"+" "+@user.first_name, "/jams", method: :get %></button>
-		<% else %>
-			<button type="button" class="btn btn-primary"><%= link_to "Edit Profile", edit_user_registration_path, method: :get %></button>
+		<br>
+		<% if user_signed_in? %>
+			<% if current_user.id != @user.id %>
+			  	<%= button_to("Connect with"+" "+@user.first_name, "/jams", method: :get, class: "btn btn-primary") %>
+			<% else %>
+				<%= button_to("Edit Profile", edit_user_registration_path, method: :get, class: "btn btn-primary") %>
+			<% end %>
 		<% end %>
-	<% end %>
-	
-
+	</div>
 </div>
 
