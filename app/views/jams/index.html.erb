@@ -49,7 +49,7 @@
 		<% if user_signed_in? %>
 				<p>
 				<br>
-				<button class="btn btn-primary"><%= link_to "Start a Jam!", "/jams/new", method: :get %></button>
+				<%= button_to("Start a Jam!", "/jams/new", method: :get, class: "btn btn-primary") %>
 				</p>
 		<% end %>
 </div>

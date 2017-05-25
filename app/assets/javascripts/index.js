@@ -20,9 +20,6 @@ function initAutocomplete() {
   });
 
 
-
-
-
 //Adding google API script tag
 function loadScript() {
   var script = document.createElement('script');
@@ -55,11 +52,24 @@ function loadScript() {
       return;
     }
 
-    // Clear out the old markers.
-    markers.forEach(function(marker) {
-      marker.setMap(null);
-    });
-    markers = [];
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) { 
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0], locations[i][1]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
 
     // For each place, get the icon, name and location.
     var bounds = new google.maps.LatLngBounds();
