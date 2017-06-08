@@ -7,6 +7,7 @@
 		Date: <%= @jam.date.strftime("%b %e, %l:%M %p") %><br>
 		Location: <%= @jam.location %><br>
 		Owner: <%= @jam.user.first_name %> <%= @jam.user.last_name %><br>
+
 		<br>
 		<% if user_signed_in? %>
 			<% if current_user.id == @jam.user_id %>

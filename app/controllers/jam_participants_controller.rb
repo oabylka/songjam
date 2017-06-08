@@ -2,7 +2,12 @@ class JamParticipantsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
+		input_jam_id = params[:jam_id]
+		@jam_participants = []
 		@timeline_jams = JamParticipant.where(user_id: current_user.id, status:"attending")
+		@jam_participants = JamParticipant.where(jam_id: input_jam_id, status:"attending")
+		p "*"*100
+		p @jam_participants
 	end
 
 	def create
@@ -15,13 +20,9 @@ class JamParticipantsController < ApplicationController
 		my_jams.each do |jam|
 			my_jam_ids << jam.jam_id
 		end
-		p "*"*100
-		p input_jam_id
 
 
 		if my_jam_ids.include?(input_jam_id.to_i)
-			p "*"*100
-			puts "true"
 			flash[:success] = "This jam is already in your timeline!"
 			@timeline_jams = JamParticipant.where(user_id: current_user.id, status:"attending")
 		else
